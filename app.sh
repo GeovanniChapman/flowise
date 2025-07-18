@@ -20,7 +20,7 @@ export DOCKER_DEFAULT_PLATFORM=linux/arm64 # Apple M1 Pro
 # Deploy
 deploy_aws_infrastructure() {
     aws cloudformation deploy \
-      --stack-name $COMPANY-n8n-$ENVIRONMENT \
+      --stack-name $COMPANY-flowise-$ENVIRONMENT \
       --template aws-infrastructure.yaml \
       --capabilities CAPABILITY_NAMED_IAM \
       --no-fail-on-empty-changeset \
@@ -29,7 +29,7 @@ deploy_aws_infrastructure() {
       VpcId=$VPC_ID \
       SubnetIds=$SUBNET_IDS \
       Company=$COMPANY \
-      Domain=n8n.$DOMAIN \
+      Domain=flowise.$DOMAIN \
       HostedZoneId=$HOSTEDZONE_ID \
       CertificateArn=$CERTIFICATE_ARN
     exit 1
